@@ -4,33 +4,46 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>الأكيلة | المنيو</title>
-<meta name="theme-color" content="#e11d2e">
-<link rel="preload" as="image" href="img/logo.webp" type="image/webp"><link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#161616">
+<link rel="preload" as="image" href="images/logo.webp" type="image/webp">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
-  <span class="blob b1"></span><span class="blob b2"></span>
-  <div class="floaties"><i>🍔</i><i>🍟</i><i>🌮</i><i>🍝</i><i>🥤</i><i>🧀</i></div>
-  <p class="kicker">أكل شهي .. بمذاق <b>مميز</b></p>
-  <img class="logo" src="img/logo.webp" alt="الأكيلة" width="520" height="250" fetchpriority="high" decoding="async">
-  <p class="tag">♥ الطعم اللي يخليك ترجع تاني</p>
-  <a class="cta" href="#sand">🔥 اطلب دلوقتي</a>
-</header>
-<nav id="tabs" class="tabs"></nav>
-<main id="menu"></main>
-<footer class="foot">الأكيلة .. دايماً اختيارك الأفضل ♥</footer>
+<header class="top"><div class="wrap">
+  <b class="brand">الأكيلة</b>
+  <a class="wa" id="waTop" href="#" rel="noopener">واتساب</a>
+</div></header>
+
+<section class="hero"><div class="wrap hero-in">
+  <div class="hero-txt">
+    <p class="kicker">أكل شهي .. بمذاق <b>مميز</b></p>
+    <h1>الطعم اللي يخليك <em>ترجع تاني</em></h1>
+    <p class="sub">سندوتشات، مكرونات، كاساديا وكرسبي. اختار اللي نفسك فيه واطلب على واتساب في ثواني.</p>
+    <a class="btn" href="#cats">اطلب دلوقتي</a>
+  </div>
+  <img class="logo" src="images/logo.webp" alt="الأكيلة" width="520" height="250" fetchpriority="high" decoding="async">
+</div></section>
+
+<div class="wrap" id="cats"><h2 class="h">أقسام المنيو</h2><div id="cards" class="cards"></div></div>
+<main id="menu" class="wrap"></main>
+
+<footer class="foot"><div class="wrap foot-in">
+  <img src="images/logo.webp" alt="" width="130" height="62" loading="lazy">
+  <p>الأكيلة .. دايماً اختيارك الأفضل</p>
+  <a class="btn" id="waFoot" href="#" rel="noopener">اطلب على واتساب</a>
+</div></footer>
 
 <div id="bar" class="bar hidden"><button id="open">🛒 <span id="count">0</span> صنف · عرض الطلب<span id="sum"></span></button></div>
 
 <div id="sheet" class="sheet hidden">
   <div class="panel">
-    <div class="ph"><h2>🧾 طلبك</h2><button id="close" aria-label="إغلاق">✕</button></div>
+    <div class="ph"><h2>طلبك</h2><button id="close" aria-label="إغلاق">✕</button></div>
     <div id="lines"></div>
     <div id="total" class="total"></div>
     <input id="name" placeholder="الاسم (اختياري)">
     <input id="addr" placeholder="العنوان / رقم الطاولة (اختياري)">
     <textarea id="note" rows="2" placeholder="ملاحظات على الطلب (اختياري)"></textarea>
-    <button id="send" class="send">إرسال الطلب على واتساب 💬</button>
+    <button id="send" class="send">إرسال الطلب على واتساب</button>
     <button id="clear" class="ghost">مسح الطلب</button>
   </div>
 </div>

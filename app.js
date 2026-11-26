@@ -3,10 +3,12 @@ const C=window.CONFIG,M=window.MENU,cart={};
 const $=s=>document.querySelector(s);
 const price=n=>C.prices&&C.prices[n]!=null?C.prices[n]:null;
 const fmt=v=>v+" "+C.currency;
-$("#tabs").innerHTML=M.map(s=>`<a href="#${s.id}">${s.icon} ${s.title.replace("قسم ","")}</a>`).join("");
-$("#menu").innerHTML=M.map(s=>`<section id="${s.id}"><div class="sh"><img src="${s.img}" alt="" loading="lazy" decoding="async" width="220" height="190"><h2>${s.icon} ${s.title}</h2></div>`+s.items.map(n=>{
+const img=(s,cls)=>`<img src="${s.img}" alt="" loading="lazy" decoding="async" onerror="var e=this.dataset.t|0;if(e<2){this.dataset.t=e+1;this.src=this.src.replace(/\\.(webp|jpg)$/,e?'.png':'.jpg')}">`;
+$("#cards").innerHTML=M.map(s=>`<a class="card" href="#${s.id}">${img(s)}<span>${s.title.replace("قسم ","")}</span></a>`).join("");
+const waLink="https://wa.me/"+C.whatsapp;["#waTop","#waFoot"].forEach(i=>$(i).href=waLink);
+$("#menu").innerHTML=M.map(s=>`<section class="cat" id="${s.id}"><div class="sh">${img(s)}<h2>${s.title}</h2></div><div class="items">`+s.items.map(n=>{
  const p=price(n);return `<div class="item"><div class="n">${n}${p!=null?`<span class="p">${fmt(p)}</span>`:""}</div>
- <div class="qty"><button class="m" data-n="${n}" data-d="-1" aria-label="إنقاص">−</button><span data-q="${n}">0</span><button data-n="${n}" data-d="1" aria-label="زيادة">+</button></div></div>`}).join("")+`</section>`).join("");
+ <div class="qty"><button class="m" data-n="${n}" data-d="-1" aria-label="إنقاص">−</button><span data-q="${n}">0</span><button data-n="${n}" data-d="1" aria-label="زيادة">+</button></div></div>`}).join("")+`</div></section>`).join("");
 function render(){
  const names=Object.keys(cart).filter(n=>cart[n]>0);
  document.querySelectorAll("[data-q]").forEach(e=>e.textContent=cart[e.dataset.q]||0);
@@ -40,11 +42,6 @@ $("#send").onclick=()=>{
  confetti();setTimeout(()=>location.href="https://wa.me/"+C.whatsapp+"?text="+encodeURIComponent(t),900);
 };
 render();
-const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.08});
-document.querySelectorAll("section").forEach(x=>io.observe(x));if(location.hash==="#shot")document.querySelectorAll("section").forEach(x=>x.classList.add("in"));
-const links=[...document.querySelectorAll(".tabs a")];
-const so=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){links.forEach(l=>l.classList.toggle("on",l.hash==="#"+x.target.id));const a=links.find(l=>l.classList.contains("on"));a&&a.scrollIntoView({inline:"center",block:"nearest"})}}),{rootMargin:"-30% 0px -60% 0px"});
-document.querySelectorAll("section").forEach(x=>so.observe(x));
 function confetti(){const c=$("#fx"),g=c.getContext("2d");c.classList.add("on");c.width=innerWidth;c.height=innerHeight;
  const cols=["#e11d2e","#ffc21a","#fff","#25d366","#ff7a1a"];
  const ps=Array.from({length:120},()=>({x:innerWidth/2,y:innerHeight*.7,vx:(Math.random()-.5)*14,vy:-Math.random()*16-4,s:Math.random()*8+4,c:cols[Math.random()*5|0],r:Math.random()*6}));

@@ -11,3 +11,6 @@
 Import للمستودع، Framework: Other، من غير Build command، والـ Output هو الجذر.
 
 التحديثات: عدّل الأسعار من config.js وهيتنشر تلقائياً على Vercel.
+
+## تغيير الصور
+ضع صور الأكل في مجلد `images/` بنفس الأسماء (sand, pasta, quesa, crispy, extra, drinks) بصيغة `.webp` أو `.jpg` أو `.png`، والموقع هياخدها لوحده. يفضل عرض 800px وحجم أقل من 100KB.
