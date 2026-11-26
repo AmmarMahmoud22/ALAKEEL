@@ -9,3 +9,5 @@
 
 ## النشر على Vercel
 Import للمستودع، Framework: Other، من غير Build command، والـ Output هو الجذر.
+
+التحديثات: عدّل الأسعار من config.js وهيتنشر تلقائياً على Vercel.
