@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الأكيلة | المنيو</title>
+<meta name="theme-color" content="#111">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <small>أكل شهي .. بمذاق <b>مميز</b></small>
+  <h1>الأكيلة</h1>
+  <p class="tag">♥ الطعم اللي يخليك ترجع تاني</p>
+</header>
+<nav id="tabs" class="tabs"></nav>
+<main id="menu"></main>
+<footer class="foot">الأكيلة .. دايماً اختيارك الأفضل</footer>
+
+<div id="bar" class="bar hidden"><button id="open">🛒 <span id="count">0</span> صنف · عرض الطلب<span id="sum"></span></button></div>
+
+<div id="sheet" class="sheet hidden">
+  <div class="panel">
+    <div class="ph"><h2>طلبك</h2><button id="close" aria-label="إغلاق">✕</button></div>
+    <div id="lines"></div>
+    <div id="total" class="total"></div>
+    <input id="name" placeholder="الاسم (اختياري)">
+    <input id="addr" placeholder="العنوان / رقم الطاولة (اختياري)">
+    <textarea id="note" rows="2" placeholder="ملاحظات على الطلب (اختياري)"></textarea>
+    <button id="send" class="send">إرسال الطلب على واتساب</button>
+    <button id="clear" class="ghost">مسح الطلب</button>
+  </div>
+</div>
+<script src="config.js"></script>
+<script src="menu.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
